@@ -34,7 +34,7 @@ public class UserDTO {
             }
             sf.close();
 
-            String fileName = NewLogFileGenerator.createNewFile("user_dto", Paths.get("D:\\Maven-plugins\\Hotel-Reservation-System\\src\\main\\java\\ua\\hotel_reservation\\logs\\dto_classes_logs"));
+            String fileName = NewLogFileGenerator.createNewFile( "user_dto", Paths.get("D:\\Maven-plugins\\Hotel-Reservation-System\\src\\main\\java\\ua\\hotel_reservation\\logs\\dto_classes_logs"));
             try (PrintStream ps = new PrintStream(fileName)){
                 e.printStackTrace(ps);
             } catch (FileNotFoundException ignored){    }
