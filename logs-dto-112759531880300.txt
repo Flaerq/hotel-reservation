@@ -1,0 +1,5 @@
+java.lang.RuntimeException: test
+	at ua.hotel_reservation.dto.UserDTO.lambda$save$0(UserDTO.java:45)
+	at ua.hotel_reservation.dto.UserDTO.sessionRunner(UserDTO.java:25)
+	at ua.hotel_reservation.dto.UserDTO.save(UserDTO.java:42)
+	at ua.hotel_reservation.Main.main(Main.java:24)
