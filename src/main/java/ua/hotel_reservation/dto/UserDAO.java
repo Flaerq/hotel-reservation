@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDTO {
+public class UserDAO {
 
     private static SessionFactory sf = new Configuration().addAnnotatedClass(User.class).buildSessionFactory();
     private static Session session = sf.openSession();

@@ -3,10 +3,13 @@ package ua.hotel_reservation.entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.event.spi.RefreshEvent;
+import ua.hotel_reservation.dto.ReservationStatusDAO;
+import ua.hotel_reservation.exception.enitiy_exceptions.NotEnoughSpaceInRoomException;
+import ua.hotel_reservation.exception.enitiy_exceptions.RoomIsAlreadyOccupiedException;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "hotel")
@@ -67,4 +70,5 @@ public class Hotel {
             this.rooms.add(room);
         }
     }
+
 }

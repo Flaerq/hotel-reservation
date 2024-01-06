@@ -1,0 +1,6 @@
+java.lang.IllegalStateException: Cannot begin Transaction on closed Session/EntityManager
+	at org.hibernate.engine.transaction.internal.TransactionImpl.begin(TransactionImpl.java:63)
+	at ua.hotel_reservation.dto.ReservationStatusDAO.sessionRunner(ReservationStatusDAO.java:34)
+	at ua.hotel_reservation.dto.ReservationStatusDAO.save(ReservationStatusDAO.java:53)
+	at ua.hotel_reservation.entity.Hotel.reserve(Hotel.java:90)
+	at ua.hotel_reservation.Main.main(Main.java:32)

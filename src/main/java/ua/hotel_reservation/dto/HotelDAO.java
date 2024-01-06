@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class RoomDTO {
+public class HotelDAO {
 
     private static SessionFactory sf = new Configuration().addAnnotatedClass(Room.class)
             .addAnnotatedClass(Hotel.class).buildSessionFactory();
@@ -34,50 +34,48 @@ public class RoomDTO {
             }
             sf.close();
 
-            String fileName = NewLogFileGenerator.createNewFile( "room_dto", Paths.get("D:\\Maven-plugins\\Hotel-Reservation-System\\src\\main\\java\\ua\\hotel_reservation\\logs\\dto_classes_logs"));
+            String fileName = NewLogFileGenerator.createNewFile( "hotel_dto", Paths.get("D:\\Maven-plugins\\Hotel-Reservation-System\\src\\main\\java\\ua\\hotel_reservation\\logs\\dto_classes_logs"));
             try (PrintStream ps = new PrintStream(fileName)){
                 e.printStackTrace(ps);
             } catch (FileNotFoundException ignored){    }
         }
-
     }
-    public void save(Room room){
+
+    public void save(Hotel hotel){
         sessionRunner(() -> {
-            session.persist(room);
+            session.persist(hotel);
         });
     }
 
-    public Optional<Room> read(int id){
-        Room[] room = new Room[1];
+    public Optional<Hotel> read(int id){
+        Hotel[] hotel = new Hotel[1];
         sessionRunner(() ->{
-            room[0] = session.get(Room.class,id);
+            hotel[0] = session.get(Hotel.class,id);
         });
 
-        return Optional.ofNullable(room[0]);
+        return Optional.ofNullable(hotel[0]);
     }
 
-    public List<Room> readAll(){
-        List<Room> rooms = new ArrayList<>();
+    public List<Hotel> readAll(){
+        List<Hotel> hotels = new ArrayList<>();
         sessionRunner(() -> {
-            rooms.addAll(session.createQuery("From Room").getResultList());
+            hotels.addAll(session.createQuery("From Hotel").getResultList());
         });
 
-        return rooms;
+        return hotels;
     }
 
-    public void update(int id, Room room){
+    public void update(int id, Hotel hotel){
         sessionRunner(() -> {
-            Room dbRoom = session.get(Room.class,id);
-            dbRoom.setRoomNumber(room.getRoomNumber());
-            dbRoom.setRoomCapacity(room.getRoomCapacity());
+            Hotel dbHotel = session.get(Hotel.class,id);
+            dbHotel.setAddress(hotel.getAddress());
         });
     }
 
     public void delete(int id){
         sessionRunner(() -> {
-            session.remove(session.get(Room.class,id));
+            session.remove(session.get(Hotel.class,id));
         });
     }
-
 
 }

@@ -2,6 +2,10 @@ package ua.hotel_reservation.entity;
 
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -23,8 +27,28 @@ public class Room {
     @JoinColumn(columnDefinition = "hotel_id", referencedColumnName = "id")
     private Hotel hotel;
 
+    @OneToMany(mappedBy = "room")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private List<ReservationStatus> reservationStatuses = new ArrayList<>();
+
     public int getId() {
         return id;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public List<ReservationStatus> getReservationStatuses() {
+        return reservationStatuses;
+    }
+
+    public void setReservationStatuses(List<ReservationStatus> reservationStatuses) {
+        this.reservationStatuses = reservationStatuses;
     }
 
     public int getRoomNumber() {

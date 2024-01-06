@@ -2,6 +2,7 @@ package ua.hotel_reservation.entity;
 
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
 import ua.hotel_reservation.exception.enitiy_exceptions.WrongAgeException;
 import ua.hotel_reservation.exception.enitiy_exceptions.WrongPhoneNumberException;
 
@@ -27,10 +28,21 @@ public class User {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @OneToOne(mappedBy = "user")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private ReservationStatus reservationStatus;
+
     public int getId() {
         return id;
     }
 
+    public ReservationStatus getReservationStatus() {
+        return reservationStatus;
+    }
+
+    public void setReservationStatus(ReservationStatus reservationStatus) {
+        this.reservationStatus = reservationStatus;
+    }
 
     public String getFirstName() {
         return firstName;
