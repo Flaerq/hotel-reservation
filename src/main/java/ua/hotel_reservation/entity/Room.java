@@ -19,6 +19,10 @@ public class Room {
     @Column(name = "room_capacity")
     private int roomCapacity;
 
+    @ManyToOne
+    @JoinColumn(columnDefinition = "hotel_id", referencedColumnName = "id")
+    private Hotel hotel;
+
     public int getId() {
         return id;
     }
@@ -55,5 +59,13 @@ public class Room {
                 ", roomNumber=" + roomNumber +
                 ", roomCapacity=" + roomCapacity +
                 '}';
+    }
+
+    public Hotel getOwningHotel() {
+        return hotel;
+    }
+
+    public void setOwningHotel(Hotel owningHotel) {
+        this.hotel = owningHotel;
     }
 }
