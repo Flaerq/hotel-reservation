@@ -1,9 +1,9 @@
-package ua.hotel_reservation.model;
+package ua.hotel_reservation.entity;
 
 
 import jakarta.persistence.*;
-import ua.hotel_reservation.exception.model_exception.WrongAgeException;
-import ua.hotel_reservation.exception.model_exception.WrongPhoneNumberException;
+import ua.hotel_reservation.exception.enitiy_exceptions.WrongAgeException;
+import ua.hotel_reservation.exception.enitiy_exceptions.WrongPhoneNumberException;
 
 @Entity
 @Table(name = "users")

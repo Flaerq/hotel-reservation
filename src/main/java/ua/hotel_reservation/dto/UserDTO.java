@@ -1,12 +1,10 @@
 package ua.hotel_reservation.dto;
 
-import jakarta.transaction.UserTransaction;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import ua.hotel_reservation.logs.NewLogFileGenerator;
-import ua.hotel_reservation.model.User;
+import ua.hotel_reservation.entity.User;
 
 import java.io.FileNotFoundException;
 import java.io.PrintStream;

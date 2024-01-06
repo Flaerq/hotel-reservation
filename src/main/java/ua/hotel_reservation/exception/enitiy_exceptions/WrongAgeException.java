@@ -1,4 +1,4 @@
-package ua.hotel_reservation.exception.model_exception;
+package ua.hotel_reservation.exception.enitiy_exceptions;
 
 public class WrongAgeException extends RuntimeException{
     public String getMessage(){
